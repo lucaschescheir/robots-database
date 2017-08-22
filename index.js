@@ -14,21 +14,24 @@ const mongo= require('mongodb').MongoClient;
 
 
 mongo.connect('mongodb://localhost:27017/test', function(err, db) {
-
-
   app.get('/', function(req, res){
 //get data from mongo
-  db.collection('robots').find().toArray().then(function (robots) {
-
+  db.collection('robots').find({job: {$ne: null}}).toArray().then(function (robots) {
     res.render('index', {
       names: robots,
     })
-
   });
-
-  });
+});
+  app.post('/', function(req, res){
+    db.collection('robots').find({job: null}).toArray().then(function (robots) {
+      res.render('index', {
+        names: robots,
+      })
+  })
 });
 app.listen(3000, function() {
   console.log('Successfully started express application')
 });
+});
+
 console.log('hello')
