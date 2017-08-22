@@ -1,0 +1,26 @@
+div {
+  height: auto;
+  width: 200px;
+  border: 1px solid darkgrey;
+  margin: 10px 20px;
+  padding-bottom: 20px;
+}
+body {
+  display: flex;
+  flex-wrap: wrap;
+  //justify-content: space-around;
+}
+img {
+  width: 200px;
+}
+.name {
+  font-size: 1.5em;
+  color: blue;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+p {
+  padding-left: 10px;
+  margin: 0px;
+  color: grey;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script src="express-app.js" defer></script>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+
+  {{ #names }}
+<div>
+  <img src={{ avatar }}>
+  <p class="name"> {{ name }} </p>
+  <p> {{ job }} </p>
+  <p> {{ company }}</p>
+</div>
+  {{ /names }}
+
+
+  </body>
+</html>
