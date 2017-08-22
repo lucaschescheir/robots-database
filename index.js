@@ -24,10 +24,17 @@ mongo.connect('mongodb://localhost:27017/test', function(err, db) {
 });
   app.post('/', function(req, res){
     db.collection('robots').find({job: null}).toArray().then(function (robots) {
-      res.render('index', {
+      res.render('unemployed', {
         names: robots,
       })
   })
+});
+app.post('/employed', function(req, res){
+  db.collection('robots').find({job: {$ne: null}}).toArray().then(function (robots) {
+    res.render('index', {
+      names: robots,
+    })
+})
 });
 app.listen(3000, function() {
   console.log('Successfully started express application')
